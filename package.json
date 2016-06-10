@@ -1,0 +1,16 @@
+{
+  "name": "liviaadventures3",
+  "version": "0.0.1",
+  "description": "The ultimate laundry experience.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "laundry",
+    "phaser"
+  ],
+  "author": "Thomas Sojka",
+  "license": "MIT"
+}
