@@ -1,0 +1,4 @@
+game.js*
+node_modules
+.tern-port
+.dir-locals.el
