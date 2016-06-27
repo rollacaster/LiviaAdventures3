@@ -4,6 +4,7 @@
   "description": "The ultimate laundry experience.",
   "main": "index.js",
   "scripts": {
+    "develop": "webpack-dev-server --config bundlerConfig.js --content-base build --port 4000 --inline",
     "build": "webpack --config bundlerConfig.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +19,11 @@
     "phaser": "^2.4.8"
   },
   "devDependencies": {
-    "script-loader": "^0.7.0",
     "webpack": "^1.13.1"
+  },
+  "standard": {
+      "globals": [
+        "Phaser"
+      ]
   }
 }
