@@ -63,11 +63,14 @@ function update () {
 }
 
 function onTileClicked (tile, event) {
-  if (contextMenu) {
+  if (contextMenuOpen) {
     contextMenuOpen = false
     contextMenu.destroy()
+    updateMarker()
+  } else {
+    createContextMenu(menuEntries, {x: event.clientX, y: event.clientY})
+    contextMenuOpen = true
   }
-  createContextMenu(menuEntries, {x: event.clientX, y: event.clientY})
 }
 
 const createContextMenu = (menuEntries, {x, y}) => {
@@ -82,4 +85,3 @@ const createContextMenu = (menuEntries, {x, y}) => {
     contextMenu.add(contextMenuEntry)
   })
 }
-
