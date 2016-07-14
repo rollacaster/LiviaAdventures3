@@ -30,5 +30,5 @@ function create () {
 }
 
 function update () {
-  Student.update(game)
+  Student.update()
 }

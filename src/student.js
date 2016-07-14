@@ -7,10 +7,6 @@ const finder = new AStarFinder()
 
 let student
 
-function update (game, washingMachines) {
-  findWashingMachine(student, washingMachines)
-}
-
 function create (game) {
   student = game.add.sprite(0, 120, 'student')
   game.physics.arcade.enable(student)
@@ -22,7 +18,7 @@ function create (game) {
   return student
 }
 
-function findWashingMachine (student) {
+function findWashingMachine () {
   washingMachines.forEach((washingMachine) => {
     if (washingMachine.state === washingMachineState.FREE) {
       washingMachine.state = washingMachineState.WORKING
@@ -64,4 +60,4 @@ function move (path, cb) {
 
 const getTileForPosition = (x) => Math.floor(x / 32)
 
-module.exports = { update, create }
+module.exports = { update: findWashingMachine, create }
