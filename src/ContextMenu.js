@@ -1,6 +1,15 @@
+const { buyWashingMachine } = require('./WashingMachine')
+
 let contextMenu
 let contextMenuOpen
 let marker
+
+const menuEntries = [
+  {
+    text: 'Buy',
+    action: buyWashingMachine
+  }
+]
 
 exports.create = (game, layer) => {
   marker = game.add.graphics()
@@ -9,7 +18,7 @@ exports.create = (game, layer) => {
   game.input.addMoveCallback(() => updateMarker(game, layer), this)
 }
 
-exports.open = (menuEntries, game, layer, {x, y}) => {
+exports.open = (game, layer, {x, y}) => {
   if (contextMenuOpen) {
     contextMenuOpen = false
     contextMenu.destroy()
@@ -28,7 +37,7 @@ const createContextMenu = (game, menuEntries, {x, y}) => {
     const button = contextMenuEntry.create(x, y + index * 10, 'button')
     button.inputEnabled = true
     button.events.onInputDown.add(() => {
-      menuEntries[index].action(marker)
+      menuEntries[index].action(game, marker)
       contextMenuOpen = false
       contextMenu.destroy()
     })

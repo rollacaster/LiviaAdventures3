@@ -1,8 +1,11 @@
 const { Grid, AStarFinder } = require('pathfinding')
+
 const { washingMachineState, customerState } = require('./constants')
+const { washingMachines } = require('./WashingMachine')
+
+const finder = new AStarFinder()
 
 let student
-const finder = new AStarFinder()
 
 function update (game, washingMachines) {
   findWashingMachine(student, washingMachines)
@@ -19,7 +22,7 @@ function create (game) {
   return student
 }
 
-function findWashingMachine (student, washingMachines) {
+function findWashingMachine (student) {
   washingMachines.forEach((washingMachine) => {
     if (washingMachine.state === washingMachineState.FREE) {
       washingMachine.state = washingMachineState.WORKING
